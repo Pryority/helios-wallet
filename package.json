@@ -1,0 +1,18 @@
+{
+  "name": "helios-wallet",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "install:frontend": "cd frontend && bun install",
+    "dev": "cd frontend && bun run dev",
+    "pack": "cd helios/helios-ts && bun install && bun run build",
+    "update-helios": "git submodule update --remote --merge && bun run move-helios",
+    "move-helios": "cp -R helios/helios-ts/dist/* frontend/src/lib/ && cp -R helios/helios-ts/pkg/* frontend/src/lib/pkg/"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
